@@ -5,6 +5,7 @@ import './index.css';
 import { CCollapse } from '@coreui/react';
 import {useState} from 'react';
 import { CButton } from '@coreui/react'
+import useCollapse from "react-collapsed";
 
 
 const AboutContainer = styled.div`
@@ -40,28 +41,29 @@ const bannerStyle = {
 /*https://stackoverflow.com/questions/65962766/animate-card-rotating-on-button-click-in-react*/
 /*https://blog.logrocket.com/create-collapsible-react-components-react-collapsed/*/
 function About() {
-  const [visibleA, setVisibleA] = useState(true)
+  const [isExpanded, setIsExpanded] = useState(true)
+    const {getToggleProps, getCollapseProps} = useCollapse({isExpanded});
   return (
     <AboutContainer>
       <img src={about_banner} alt="banner" style={bannerStyle}></img>
       <AboutCard>
         <AboutTitle>
           Fiabilité
-          <CButton onClick={() => setVisibleA(!visibleA)}><AiOutlineUp/></CButton>
+          <CButton {...getToggleProps({ onClick: () => setIsExpanded((prevExpanded) => !prevExpanded)})}><AiOutlineUp/></CButton>
           
         </AboutTitle>
-        <CCollapse visible={visibleA}>
-        <AboutParagraph>Les annonces postées sur Kasa garantissent une fiabilité totale.
+        <CCollapse>
+        <AboutParagraph {...getCollapseProps()}>Les annonces postées sur Kasa garantissent une fiabilité totale.
           Les photos sont conformes aux logements, et toutes les informations sont
           régulièrement vérifiées par nos équipes.</AboutParagraph>
           </CCollapse>
       </AboutCard>
       <AboutCard>
-        <AboutTitle>
+        <AboutTitle {...getToggleProps({ onClick: () => setIsExpanded((prevExpanded) => !prevExpanded)})}>
           Respect
           <AiOutlineUp />
           </AboutTitle>
-        <AboutParagraph>La bienveillance fait partie des valeurs fondatrices de Kasa.
+        <AboutParagraph {...getCollapseProps()}>La bienveillance fait partie des valeurs fondatrices de Kasa.
           Tout comportement discriminatoire ou de perturbation du voisinage entrainera
           une exclusion de notre plateforme.</AboutParagraph>
       </AboutCard>

@@ -1,14 +1,13 @@
 import data from '../../assets/logements.json'
 import styled from 'styled-components'
-import { AiOutlineUp } from "react-icons/ai";
-import { AiFillStar } from "react-icons/ai";
-import { AiOutlineStar } from "react-icons/ai";
+import {AiFillStar, AiOutlineStar, AiOutlineUp} from "react-icons/ai";
+import {useSearchParams} from "react-router-dom";
 
 const size = {
-  mobile: '768px'
+    mobile: '768px'
 }
 export const device = {
-  mobile: `(max-width: ${size.mobile})`
+    mobile: `(max-width: ${size.mobile})`
 };
 
 const HeaderContainer = styled.div`
@@ -95,73 +94,69 @@ flex-direction:row;
 `
 
 const h1Style = {
-  color:'#FF6060',
+    color: '#FF6060',
 };
 const h2Style = {
-  color:'#FF6060',
+    color: '#FF6060',
 };
 
-
-const urlText = window.location.href
-var url = new URL(urlText);
-const productId = url.searchParams.get("id");
-console.log(productId)
-/*recuperer props this.props.match.params.id*/
-
-function Rental({ props }) {
-  const elt = data.filter(({ id }) => id === productId);
-  return (
-    <PageContainer>
-      <p>Rental</p><br></br>
-      {
-        elt.map(content => (
-          <div key={content.id}>
-            <ImgContainer>
-              <img src={content.cover} alt={content.title}></img>
-            </ImgContainer>
-            <HeaderContainer>
-          <TitleContainer>
-          <h1 style={h1Style}>{content.title}</h1>
-          <h2 style={h2Style}>{content.location}</h2>
-          <TagContainer>tag</TagContainer>
-          </TitleContainer>
-          <HostAndRatingContainer>
-          <HostContainer>
-          <h2>{content.host.name}</h2>
-          <HostPicContainer>
-          <img src={content.host.picture} alt={content.host.name}></img>
-          </HostPicContainer>
-          </HostContainer>
-          <RatingContainer>
-          <h2>{content.rating}</h2>
-          <AiFillStar />
-          <AiOutlineStar />
-          </RatingContainer>
-          </HostAndRatingContainer>
-          </HeaderContainer>
-          <AboutContainer>
-          <About2Container>
-            <AboutTitleContainer>
-          <AboutTitle>Description</AboutTitle>
-          <AiOutlineUp />
-          </AboutTitleContainer>
-          <AboutParagraph>{content.description}</AboutParagraph>
-          </About2Container>
-          <About2Container>
-          <AboutTitleContainer>
-          <AboutTitle>Equipements</AboutTitle>
-          <AiOutlineUp />
-          </AboutTitleContainer>
-          <AboutParagraph>{content.equipments}
-          </AboutParagraph>
-          </About2Container>
-          </AboutContainer>
-          </div>
-        ))
-      }
-
-    </PageContainer>
-  )
+function Rental(props) {
+    /*  get product id with useSearchParams Hook */
+    const [searchParams] = useSearchParams();
+    const productId = searchParams.get('id');
+    const rental = data.find(({id}) => id === productId);
+    const equipments = [];
+    for (const [key, value] of Object.entries(rental.equipments)) {
+        equipments.push(<li key={'equip-' + key}>{value}</li>);
+    }
+    return (
+        <PageContainer>
+            <p>Rental</p><br></br>
+            <div key={rental.id}>
+                <ImgContainer>
+                    <img src={rental.cover} alt={rental.title}></img>
+                </ImgContainer>
+                <HeaderContainer>
+                    <TitleContainer>
+                        <h1 style={h1Style}>{rental.title}</h1>
+                        <h2 style={h2Style}>{rental.location}</h2>
+                        <TagContainer>tag</TagContainer>
+                    </TitleContainer>
+                    <HostAndRatingContainer>
+                        <HostContainer>
+                            <h2>{rental.host.name}</h2>
+                            <HostPicContainer>
+                                <img src={rental.host.picture} alt={rental.host.name}></img>
+                            </HostPicContainer>
+                        </HostContainer>
+                        <RatingContainer>
+                            <h2>{rental.rating}</h2>
+                            <AiFillStar/>
+                            <AiOutlineStar/>
+                        </RatingContainer>
+                    </HostAndRatingContainer>
+                </HeaderContainer>
+                <AboutContainer>
+                    <About2Container>
+                        <AboutTitleContainer>
+                            <AboutTitle>Description</AboutTitle>
+                            <AiOutlineUp/>
+                        </AboutTitleContainer>
+                        <AboutParagraph>{rental.description}</AboutParagraph>
+                    </About2Container>
+                    <About2Container>
+                        <AboutTitleContainer>
+                            <AboutTitle>Equipements</AboutTitle>
+                            <AiOutlineUp/>
+                        </AboutTitleContainer>
+                        <AboutParagraph>
+                            <ul>{equipments}</ul>
+                        </AboutParagraph>
+                    </About2Container>
+                </AboutContainer>
+            </div>
+        </PageContainer>
+    )
 }
 
 export default Rental

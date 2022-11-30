@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import data from '../../assets/logements.json'
 import accueil_banner from '../../assets/accueil_banner.png'
 import { Link } from 'react-router-dom'
-
+import './home.css'
 const size = {
   mobile: '768px'
 }
@@ -12,7 +12,7 @@ export const device = {
 
 const HomeContainer = styled.div`
 align-items: center;
-width:80%;
+width:100%;
 `
 
 const CardsContainer = styled.div`
@@ -50,12 +50,12 @@ const imgStyle = {
 function Home() {
 
   return (
-    <HomeContainer>
-    <img src={accueil_banner} alt="banner"></img>
+    <HomeContainer className="home">
+    <img src={accueil_banner} alt="banner" className="banner"></img>
     <CardsContainer>
       { 
-      data.map ( content => 
-        <Card>
+      data.map ( (content, index) =>
+        <Card key={"card-" + index}>
           <Link to={`/rental?id=${content.id}`}>
           <img src={content.cover} style={imgStyle}/>
           <CardTitle>
