@@ -1,7 +1,13 @@
 import data from '../../assets/logements.json'
 import styled from 'styled-components'
-import {AiFillStar, AiOutlineStar, AiOutlineUp} from "react-icons/ai";
 import {useSearchParams} from "react-router-dom";
+import './rental.css';
+import star_full from '../../assets/star_rate-24px 5.svg';
+import star_empty from '../../assets/star_rate-24px 2.svg';
+import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
+import { Navigate } from "react-router-dom";
+import { Link } from 'react-router-dom'
+
 
 const size = {
     mobile: '768px'
@@ -30,44 +36,26 @@ flex-direction: row;
 `
 
 const TagContainer = styled.div`
-background-color:#FF6060;
-color:white;
+display : flex;
+flex-direction:row;
+text-decoration: none;
 `
 const AboutContainer = styled.div`
 display:flex;
 flex-direction: row;
+@media ${device.mobile} { 
+    display : flex;
+    flex-direction:column;
+}
 `
 const About2Container = styled.div`
 display:flex;
 flex-direction: column;
 margin-left: 10px;
 width:50%;
-`
-const AboutTitleContainer = styled.div`
-background-color:#FF6060;
-  color:white;
-  display : flex;
-  flex-direction:row;
-  justify-content: space-between;
-  border-radius:5px;
-  padding-left: 5px;
+list-style-type: none;
 `
 
-
-const AboutTitle = styled.div`
-  background-color:#FF6060;
-  color:white;
-  display : flex;
-  justify-content: space-between;
-  border-radius:5px;
-  padding-left: 5px;
-`
-
-const AboutParagraph = styled.div`
-  background-color:#F6F6F6;
-  color:#FF6060;
-  padding: 10px 5px 10px 5px;
-`
 const ImgContainer = styled.div`
 display : flex;
 `
@@ -81,7 +69,8 @@ display : flex;
 flex-direction: column;
 @media ${device.mobile} { 
   display : flex;
-flex-direction: row;
+flex-direction: row-reverse;
+justify-content: space-between;
 }
 `
 const HostPicContainer = styled.div`
@@ -109,9 +98,32 @@ function Rental(props) {
     for (const [key, value] of Object.entries(rental.equipments)) {
         equipments.push(<li key={'equip-' + key}>{value}</li>);
     }
+    const stars= [];
+    for (let i=0;i<rental.rating;i++) {
+        stars.push(<img src={star_full} alt="star full"></img>)
+    }
+    for (let i=rental.rating;i<5;i++){
+        stars.push(<img src={star_empty} alt="star empty"></img>)
+    }
+    const tags = [];
+    for (const [key, value] of Object.entries(rental.tags)) {
+        tags.push(<Link className="linkTag" to={`/features?id=${productId}&tag=${value}`}>
+            <p key={'equip-' + key} className='tag'>{value}</p>
+            </Link>);
+    }
+    const tab = [
+        { title: 'Description'
+        , description: rental.description 
+      },
+      { title: 'Equipements'
+        , description: equipments
+      }]
+      let productFound= data.find(({id}) => id === productId ) ; /*productId c67ab8a72*/
     return (
         <PageContainer>
-            <p>Rental</p><br></br>
+            {! productFound && (
+          <Navigate to="/Error" replace={true} />
+            )}
             <div key={rental.id}>
                 <ImgContainer>
                     <img src={rental.cover} alt={rental.title}></img>
@@ -120,39 +132,23 @@ function Rental(props) {
                     <TitleContainer>
                         <h1 style={h1Style}>{rental.title}</h1>
                         <h2 style={h2Style}>{rental.location}</h2>
-                        <TagContainer>tag</TagContainer>
+                        <TagContainer>{tags}</TagContainer>
                     </TitleContainer>
                     <HostAndRatingContainer>
                         <HostContainer>
                             <h2>{rental.host.name}</h2>
                             <HostPicContainer>
-                                <img src={rental.host.picture} alt={rental.host.name}></img>
+                                <img src={rental.host.picture} alt={rental.host.name} className='hostPic'></img>
                             </HostPicContainer>
                         </HostContainer>
                         <RatingContainer>
-                            <h2>{rental.rating}</h2>
-                            <AiFillStar/>
-                            <AiOutlineStar/>
+                            {stars}
                         </RatingContainer>
                     </HostAndRatingContainer>
                 </HeaderContainer>
                 <AboutContainer>
-                    <About2Container>
-                        <AboutTitleContainer>
-                            <AboutTitle>Description</AboutTitle>
-                            <AiOutlineUp/>
-                        </AboutTitleContainer>
-                        <AboutParagraph>{rental.description}</AboutParagraph>
-                    </About2Container>
-                    <About2Container>
-                        <AboutTitleContainer>
-                            <AboutTitle>Equipements</AboutTitle>
-                            <AiOutlineUp/>
-                        </AboutTitleContainer>
-                        <AboutParagraph>
-                            <ul>{equipments}</ul>
-                        </AboutParagraph>
-                    </About2Container>
+                    <About2Container ><CollapsibleCard  title={tab[0].title} description={tab[0].description} /></About2Container>
+                    <About2Container ><CollapsibleCard  title={tab[1].title} description={tab[1].description} /></About2Container>
                 </AboutContainer>
             </div>
         </PageContainer>

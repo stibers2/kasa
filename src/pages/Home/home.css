@@ -1,3 +1,20 @@
 .home .banner {
     width: 100%;
 }
+
+.homeContainer {
+align-items: center;
+width:100%;
+}
+  
+  .cardsContainer {
+  align-items: center;
+  width:80%;
+  justify-content:space-around;
+  display:flex;
+  flex-wrap: wrap;
+  @media all and  (max-width:768px)  { 
+    display : flex;
+  flex-direction: column;
+  }
+}

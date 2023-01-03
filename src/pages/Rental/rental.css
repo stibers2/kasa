@@ -1,0 +1,18 @@
+.equip_ul {
+list-style: none;
+}
+
+.tag {
+    background-color:#FF6060;
+color:white;
+margin-left: 10px;
+text-decoration: none;
+}
+
+.linkTag {
+    text-decoration: none;  
+}
+
+.hostPic {
+    border-radius: 50%;
+}

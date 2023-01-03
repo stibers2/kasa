@@ -3,29 +3,8 @@ import data from '../../assets/logements.json'
 import accueil_banner from '../../assets/accueil_banner.png'
 import { Link } from 'react-router-dom'
 import './home.css'
-const size = {
-  mobile: '768px'
-}
-export const device = {
-  mobile: `(max-width: ${size.mobile})`
-};
 
-const HomeContainer = styled.div`
-align-items: center;
-width:100%;
-`
 
-const CardsContainer = styled.div`
-align-items: center;
-width:80%;
-justify-content:space-around;
-display:flex;
-flex-wrap: wrap;
-@media ${device.mobile} { 
-  display : flex;
-flex-direction: column;
-}
-`
 const Card = styled.div`
 margin-top:50px;
 margin-left:50px;
@@ -50,14 +29,14 @@ const imgStyle = {
 function Home() {
 
   return (
-    <HomeContainer className="home">
+    <div className="homeContainer">
     <img src={accueil_banner} alt="banner" className="banner"></img>
-    <CardsContainer>
+    <div className="cardsContainer">
       { 
       data.map ( (content, index) =>
         <Card key={"card-" + index}>
           <Link to={`/rental?id=${content.id}`}>
-          <img src={content.cover} style={imgStyle}/>
+          <img src={content.cover} alt="rental" style={imgStyle}/>
           <CardTitle>
         {content.title}
         </CardTitle>
@@ -67,9 +46,9 @@ function Home() {
       )
      
     }
-    </CardsContainer>
+    </div>
     
-    </HomeContainer>
+    </div>
   )
 }
 

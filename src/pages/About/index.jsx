@@ -1,11 +1,8 @@
 import styled from 'styled-components'
 import about_banner from '../../assets/about_banner.png'
-import { AiOutlineUp } from "react-icons/ai";
 import './index.css';
-import { CCollapse } from '@coreui/react';
 import {useState} from 'react';
-import { CButton } from '@coreui/react'
-import useCollapse from "react-collapsed";
+import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
 
 
 const AboutContainer = styled.div`
@@ -19,6 +16,7 @@ const AboutContainer = styled.div`
 const AboutCard = styled.div`
 display:flex;
 flex-direction:column;
+width: 100%;
 `
 const AboutTitle = styled.div`
   background-color:#FF6060;
@@ -34,60 +32,50 @@ const AboutParagraph = styled.div`
   color:#FF6060;
   padding: 10px 5px 10px 5px;
 `
-const bannerStyle = {
-  width: '100%',
-};
 
+
+
+/*https://blog.openreplay.com/creating-a-collapsible-component-for-react/*/
 /*https://stackoverflow.com/questions/65962766/animate-card-rotating-on-button-click-in-react*/
 /*https://blog.logrocket.com/create-collapsible-react-components-react-collapsed/*/
 function About() {
-  const [isExpanded, setIsExpanded] = useState(true)
-    const {getToggleProps, getCollapseProps} = useCollapse({isExpanded});
+  const [open1, setOPen1] = useState(true);
+  const toggle1 = () => {
+    setOPen1(!open1);
+  };
+  const [open2, setOPen2] = useState(true);
+  const toggle2 = () => {
+    setOPen2(!open2);
+  };
+    const [open3, setOPen3] = useState(true);
+    const toggle3 = () => {
+      setOPen3(!open3);
+    };
+    const [open4, setOPen4] = useState(true);
+    const toggle4 = () => {
+      setOPen4(!open4);
+    };
+const tab = [
+  { title: 'Fiabilité'
+  , description: 'Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.'
+},
+{ title: 'Respect'
+  , description: 'La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entrainera une exclusion de notre plateforme.'
+},
+{ title: 'Service'
+  , description: 'Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N hésitez pas à nous contacter si vous avez la moindre question.'
+},
+{ title: 'Sécurité'
+  , description: 'La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l hôte qu au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.'
+},
+]
   return (
     <AboutContainer>
-      <img src={about_banner} alt="banner" style={bannerStyle}></img>
-      <AboutCard>
-        <AboutTitle>
-          Fiabilité
-          <CButton {...getToggleProps({ onClick: () => setIsExpanded((prevExpanded) => !prevExpanded)})}><AiOutlineUp/></CButton>
-          
-        </AboutTitle>
-        <CCollapse>
-        <AboutParagraph {...getCollapseProps()}>Les annonces postées sur Kasa garantissent une fiabilité totale.
-          Les photos sont conformes aux logements, et toutes les informations sont
-          régulièrement vérifiées par nos équipes.</AboutParagraph>
-          </CCollapse>
-      </AboutCard>
-      <AboutCard>
-        <AboutTitle {...getToggleProps({ onClick: () => setIsExpanded((prevExpanded) => !prevExpanded)})}>
-          Respect
-          <AiOutlineUp />
-          </AboutTitle>
-        <AboutParagraph {...getCollapseProps()}>La bienveillance fait partie des valeurs fondatrices de Kasa.
-          Tout comportement discriminatoire ou de perturbation du voisinage entrainera
-          une exclusion de notre plateforme.</AboutParagraph>
-      </AboutCard>
-      <AboutCard>
-      <AboutTitle>
-        Service
-        <AiOutlineUp />
-        </AboutTitle>
-      <AboutParagraph>Nos équipes se tiennent à votre disposition pour vous fournir
-        une expérience parfaite. N'hésitez pas à nous contacter si vous avez la
-        moindre question.</AboutParagraph>
-        </AboutCard>
-        <AboutCard>
-      <AboutTitle>
-        Sécurité
-        <AiOutlineUp />
-        </AboutTitle>
-      <AboutParagraph>La sécurité est la priorité de Kasa. Aussi bien pour nos
-        hôtes que pour les voyageurs, chaque logement correspond aux critères de
-        sécurité établis par nos services. En laissant une note aussi bien à
-        l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les
-        standards sont bien respectés. Nous organisons également des ateliers
-        sur la sécurité domestique pour nos hôtes.</AboutParagraph>
-        </AboutCard>
+      <img src={about_banner} alt="banner" className="banner"></img>
+      <AboutCard ><CollapsibleCard  title={tab[0].title} description={tab[0].description} /></AboutCard>
+      <AboutCard ><CollapsibleCard  title={tab[1].title} description={tab[1].description} /></AboutCard>
+      <AboutCard ><CollapsibleCard  title={tab[2].title} description={tab[2].description} /></AboutCard>
+      <AboutCard ><CollapsibleCard  title={tab[3].title} description={tab[3].description} /></AboutCard>
     </AboutContainer>
   )
 }
