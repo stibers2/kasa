@@ -16,3 +16,70 @@ text-decoration: none;
 .hostPic {
     border-radius: 50%;
 }
+
+.headerContainer {
+    display: flex;
+flex-direction: row;
+@media and (max-width: '768px') { 
+  display : flex;
+flex-direction: column;
+}
+}
+
+.titleContainer {
+    align-items: center;
+width:80%;
+}
+
+.imgContainer {
+    display : flex;
+}
+
+.hostAndRatingContainer {
+    display : flex;
+    flex-direction: column;
+    @media and (max-width: '768px')  { 
+      display : flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    }
+}
+
+.hostContainer {
+    color:#FF6060;
+display: flex;
+flex-direction: row;
+}
+
+.hostPicContainer {
+    display : flex;
+    border-radius: 50%;
+}
+
+.ratingContainer {
+    display : flex;
+    flex-direction:row;
+}
+
+.tagContainer {
+    display : flex;
+    flex-direction:row;
+    text-decoration: none;
+}
+
+.aboutContainer {
+    display:flex;
+    flex-direction: row;
+    @media and (max-width: '768px')  { 
+        display : flex;
+        flex-direction:column;
+    }
+}
+
+.about2Container {
+    display:flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width:50%;
+    list-style-type: none;
+}

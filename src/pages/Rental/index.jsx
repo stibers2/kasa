@@ -8,79 +8,11 @@ import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
 import { Navigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
 
-
-const size = {
-    mobile: '768px'
-}
-export const device = {
-    mobile: `(max-width: ${size.mobile})`
-};
-
-const HeaderContainer = styled.div`
-display: flex;
-flex-direction: row;
-@media ${device.mobile} { 
-  display : flex;
-flex-direction: column;
-}
-`
-
-const TitleContainer = styled.div`
-align-items: center;
-width:80%;
-`
-const HostContainer = styled.div`
-color::#FF6060;
-display: flex;
-flex-direction: row;
-`
-
-const TagContainer = styled.div`
-display : flex;
-flex-direction:row;
-text-decoration: none;
-`
-const AboutContainer = styled.div`
-display:flex;
-flex-direction: row;
-@media ${device.mobile} { 
-    display : flex;
-    flex-direction:column;
-}
-`
-const About2Container = styled.div`
-display:flex;
-flex-direction: column;
-margin-left: 10px;
-width:50%;
-list-style-type: none;
-`
-
-const ImgContainer = styled.div`
-display : flex;
-`
 const PageContainer = styled.div`
 display : flex;
 color:#FF6060;
 `
 
-const HostAndRatingContainer = styled.div`
-display : flex;
-flex-direction: column;
-@media ${device.mobile} { 
-  display : flex;
-flex-direction: row-reverse;
-justify-content: space-between;
-}
-`
-const HostPicContainer = styled.div`
-display : flex;
-border-radius: 50%;
-`
-const RatingContainer = styled.div`
-display : flex;
-flex-direction:row;
-`
 
 const h1Style = {
     color: '#FF6060',
@@ -125,31 +57,35 @@ function Rental(props) {
           <Navigate to="/Error" replace={true} />
             )}
             <div key={rental.id}>
-                <ImgContainer>
+                <div className="imgContainer">
                     <img src={rental.cover} alt={rental.title}></img>
-                </ImgContainer>
-                <HeaderContainer>
-                    <TitleContainer>
+                </div>
+                <div className="headerContainer">
+                    <div className="titleContainer">
                         <h1 style={h1Style}>{rental.title}</h1>
                         <h2 style={h2Style}>{rental.location}</h2>
-                        <TagContainer>{tags}</TagContainer>
-                    </TitleContainer>
-                    <HostAndRatingContainer>
-                        <HostContainer>
+                        <div className="tagContainer">{tags}</div>
+                    </div>
+                    <div className="hostAndRatingContainer">
+                        <div className="hostContainer">
                             <h2>{rental.host.name}</h2>
-                            <HostPicContainer>
+                            <div className="hostPicContainer">
                                 <img src={rental.host.picture} alt={rental.host.name} className='hostPic'></img>
-                            </HostPicContainer>
-                        </HostContainer>
-                        <RatingContainer>
+                            </div>
+                        </div>
+                        <div className="ratingContainer">
                             {stars}
-                        </RatingContainer>
-                    </HostAndRatingContainer>
-                </HeaderContainer>
-                <AboutContainer>
-                    <About2Container ><CollapsibleCard  title={tab[0].title} description={tab[0].description} /></About2Container>
-                    <About2Container ><CollapsibleCard  title={tab[1].title} description={tab[1].description} /></About2Container>
-                </AboutContainer>
+                        </div>
+                    </div>
+                </div>
+                <div className="aboutContainer">
+                    <div className="about2Container">
+                        <CollapsibleCard  title={tab[0].title} description={tab[0].description} />
+                        </div>
+                    <div className="about2Container">
+                        <CollapsibleCard  title={tab[1].title} description={tab[1].description} />
+                        </div>
+                </div>
             </div>
         </PageContainer>
     )

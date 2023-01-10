@@ -5,3 +5,18 @@
   .banner {
     width: 100%;
 }
+
+.aboutContainer {
+  color:#FF6060;
+  width:80%;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction:column;
+}
+
+.aboutCard {
+  display:flex;
+flex-direction:column;
+width: 100%;
+}
