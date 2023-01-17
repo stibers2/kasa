@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import data from '../../assets/logements.json'
 import accueil_banner from '../../assets/accueil_banner.png'
+import { useLoaderData } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import './home.css'
 
@@ -27,7 +27,7 @@ const imgStyle = {
 };
 
 function Home() {
-
+  const { data } = useLoaderData();
   return (
     <div className="homeContainer">
     <img src={accueil_banner} alt="banner" className="banner"></img>

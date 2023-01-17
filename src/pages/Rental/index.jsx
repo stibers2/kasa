@@ -1,20 +1,9 @@
-import data from '../../assets/logements.json'
-import styled from 'styled-components'
 import { useLoaderData } from "react-router-dom";
-import {useSearchParams} from "react-router-dom";
 import './rental.css';
 import star_full from '../../assets/star_rate-24px 5.svg';
 import star_empty from '../../assets/star_rate-24px 2.svg';
 import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
-import { Navigate } from "react-router-dom";
 import { Link } from 'react-router-dom'
-
-const PageContainer = styled.div`
-display : flex;
-color:#FF6060;
-margin-left: 10px;
-`
-
 
 const h1Style = {
     color: '#FF6060',
@@ -24,7 +13,7 @@ const h2Style = {
 };
 
 function Rental(props) {
-    /*  get product id with useSearchParams Hook */
+    
     const { rental } = useLoaderData();
     const equipments = [];
     for (const [key, value] of Object.entries(rental.equipments)) {
@@ -52,7 +41,7 @@ function Rental(props) {
       }]
      // let productFound= data.find(({id}) => id === productId ) ; /*productId c67ab8a72*/
     return (
-        <PageContainer>
+        <div className="pageContainer">
           {/*  {! productFound && (
           <Navigate to="/Error" replace={true} />
             )} */}
@@ -78,7 +67,7 @@ function Rental(props) {
                         </div>
                     </div>
                 </div>
-                <div className="aboutContainer">
+                <div className="aboutContainerRental">
                     <div className="about2Container">
                         <CollapsibleCard  title={tab[0].title} description={tab[0].description} />
                         </div>
@@ -87,7 +76,7 @@ function Rental(props) {
                         </div>
                 </div>
             </div>
-        </PageContainer>
+        </div>
     )
 }
 

@@ -1,0 +1,15 @@
+.aboutTitle {
+  background-color:#FF6060;
+  color:white;
+  display : flex;
+  flex-direction:row;
+  justify-content: space-between;
+  border-radius:5px;
+  padding-left: 5px;
+}
+
+.aboutParagraph {
+  background-color:#F6F6F6;
+  color:#FF6060;
+  padding: 10px 5px 10px 5px;
+}

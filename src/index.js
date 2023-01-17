@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes, useParams, useSearchParams } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
 import './index.css';
 /*import App from './App';*/
 import reportWebVitals from './reportWebVitals';
@@ -17,8 +17,11 @@ import CarouselPic from './pages/CarouselPic';
 import data from './assets/logements.json'
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="" element={<Layout />}>
-    <Route exact path="/" element={<Home />} />
+  <Route path="" element={<Layout />}  >
+    <Route exact path="/" element={<Home />} 
+    loader={() => { return{data} }
+  }
+    />
     <Route path="/about" element={<About />} />
     <Route path="/test" element={<Test />} />
     <Route

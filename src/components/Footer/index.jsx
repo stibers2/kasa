@@ -1,19 +1,10 @@
-import styled from 'styled-components'
+import './index.css';
 
-const FooterContainer = styled.footer`
-  background-color: black;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 0;
-`
 
 function Footer() {
 
     return (
-        <FooterContainer>
+        <div className="footerContainer">
             <svg width="211" height="68" viewBox="0 0 211 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M20.0745 34.6485L8.84014 46.1362V62.2561H0V0H8.84014V34.8338L42.359 0H52.4883L26.1521 27.9782L54.33 62.2561H44.0165L20.0745 34.6485Z" fill="#FFF" />
                 <path d="M118.789 57.2535L122.289 50.5832C126.34 53.3625 132.602 55.4006 138.68 55.4006C146.599 55.4006 149.73 52.9919 149.73 48.9156C149.73 38.3543 120.078 47.4333 120.078 28.7194C120.078 20.1963 127.629 14.6377 139.6 14.6377C145.678 14.6377 152.676 16.3053 156.728 18.8993L153.045 25.5696C148.809 22.7903 144.205 21.8639 139.6 21.8639C132.234 21.8639 128.55 24.6431 128.55 28.3489C128.55 39.466 158.202 30.387 158.202 48.7303C158.202 57.2535 150.466 62.6268 137.943 62.6268C130.392 62.8121 122.657 60.4034 118.789 57.2535Z" fill="#FFF" />
@@ -22,7 +13,7 @@ function Footer() {
                 <path d="M106.266 34.4633L84.3496 21.6786L72.1944 14.6377L60.2234 35.575L60.4076 55.2153L82.1396 68.0001L84.3496 66.7031V48.1745L94.1106 30.9429L104.056 36.6867V55.2153L106.266 53.9184V34.4633Z" fill="#FFF" />
             </svg>
             <p>&copy; 2020 Kasa. All rights reserved</p>
-        </FooterContainer>
+        </div>
     )
 }
 

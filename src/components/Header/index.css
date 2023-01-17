@@ -1,3 +1,23 @@
+.headerContainer {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color:#FF6060;
+}
+
+.navContainer {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linkStyle {
+    padding-left: 20px;
+    color: inherit;
+    text-decoration-line: none;
+  }
 
 
 @media all and (max-width: 768px)  { 

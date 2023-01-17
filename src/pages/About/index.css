@@ -12,11 +12,12 @@
   justify-content: center;
   align-items: center;
   display:flex;
-  flex-direction:column;
+  flex-direction:column !important;
 }
 
 .aboutCard {
   display:flex;
 flex-direction:column;
 width: 100%;
+margin: 10px 4% 0 4%;
 }
