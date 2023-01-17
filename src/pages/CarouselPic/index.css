@@ -1,0 +1,122 @@
+.carousel {
+    overflow: hidden;
+}
+
+.carousel__inner {
+    white-space: nowrap;
+    transition: transform 0.3s;
+}
+
+.carousel-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    background-color: green;
+    color: #FFF;
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+}
+
+.indicators > button {
+    margin: 5px;
+}
+
+.indicators > button.active {
+    background-color: green;
+    color: #fff;
+}
+
+.item {
+    height: 100%;
+}
+.item .item__image img {
+    object-fit: contain;
+    height: 400px;
+}
+
+.miniature {
+    width: 200px;
+    height: 200px;
+    display: inline-flex;
+    align-items: flex-start;
+}
+
+.miniature .miniature__image {
+    object-fit: contain;
+    height: 200px;
+    width: 200px;
+}
+
+.featuresContainer {
+    justify-content: left;
+align-items: left;
+color:#FF6060;
+display: flex;
+flex-direction: column;
+margin-left: 20px;
+}
+
+.tagContainer {
+    display : flex;
+    flex-direction:row;
+    background-color:#FF6060;
+    color: white;
+    width: 100px;
+    margin-left:10px;
+    margin-bottom:20px;
+    padding-left: 10px;
+    border-radius:5px;
+}
+
+.card {
+    margin-top:10px;
+    margin-left:10px;
+    margin-bottom: 20px;
+    height:200px;
+    width:200px;
+    position:relative;
+    background-color:#FF6060;
+    border-radius:10px;
+}
+
+.cardTitle {
+    position: absolute;
+bottom:2%;
+left:2%;
+color: white;
+}
+
+.equipContainer {
+    display:flex;
+flex-direction: row;
+margin-bottom:20px;
+}
+
+.equip2Container {
+    display:flex;
+    flex-direction: column;
+    margin-right: 20px;
+    margin-left: 10px;
+    width:40%;
+    list-style-type: none;
+}
+
+.aboutContainer {
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    width: 100%;
+    margin-bottom:20px;
+}
+
+.about2Container {
+    display:flex;
+    flex-direction: column;
+    margin-left: 10px;
+    width:40%;
+    margin-bottom:20px;
+}

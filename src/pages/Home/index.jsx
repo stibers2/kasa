@@ -35,7 +35,7 @@ function Home() {
       { 
       data.map ( (content, index) =>
         <Card key={"card-" + index}>
-          <Link to={`/rental?id=${content.id}`}>
+          <Link to={`/rental/${content.id}`}>
           <img src={content.cover} alt="rental" style={imgStyle}/>
           <CardTitle>
         {content.title}

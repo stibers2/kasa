@@ -1,5 +1,6 @@
 import data from '../../assets/logements.json'
 import styled from 'styled-components'
+import { useLoaderData } from "react-router-dom";
 import {useSearchParams} from "react-router-dom";
 import './rental.css';
 import star_full from '../../assets/star_rate-24px 5.svg';
@@ -11,6 +12,7 @@ import { Link } from 'react-router-dom'
 const PageContainer = styled.div`
 display : flex;
 color:#FF6060;
+margin-left: 10px;
 `
 
 
@@ -23,9 +25,7 @@ const h2Style = {
 
 function Rental(props) {
     /*  get product id with useSearchParams Hook */
-    const [searchParams] = useSearchParams();
-    const productId = searchParams.get('id');
-    const rental = data.find(({id}) => id === productId);
+    const { rental } = useLoaderData();
     const equipments = [];
     for (const [key, value] of Object.entries(rental.equipments)) {
         equipments.push(<li key={'equip-' + key}>{value}</li>);
@@ -39,7 +39,7 @@ function Rental(props) {
     }
     const tags = [];
     for (const [key, value] of Object.entries(rental.tags)) {
-        tags.push(<Link className="linkTag" to={`/features?id=${productId}&tag=${value}`}>
+        tags.push(<Link className="linkTag" to={`/carousel/${rental.id}?tag=${value}`} key={"tag-" + key}>
             <p key={'equip-' + key} className='tag'>{value}</p>
             </Link>);
     }
@@ -50,15 +50,15 @@ function Rental(props) {
       { title: 'Equipements'
         , description: equipments
       }]
-      let productFound= data.find(({id}) => id === productId ) ; /*productId c67ab8a72*/
+     // let productFound= data.find(({id}) => id === productId ) ; /*productId c67ab8a72*/
     return (
         <PageContainer>
-            {! productFound && (
+          {/*  {! productFound && (
           <Navigate to="/Error" replace={true} />
-            )}
+            )} */}
             <div key={rental.id}>
                 <div className="imgContainer">
-                    <img src={rental.cover} alt={rental.title}></img>
+                    <img className="imgClass" src={rental.cover} alt={rental.title}></img>
                 </div>
                 <div className="headerContainer">
                     <div className="titleContainer">
