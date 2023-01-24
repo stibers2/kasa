@@ -11,8 +11,6 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Rental from './pages/Rental'
 import Error from './pages/Error'
-import Test from './pages/Test'
-import Features from './pages/Features'
 import CarouselPic from './pages/CarouselPic';
 import data from './assets/logements.json'
 
@@ -23,7 +21,6 @@ const router = createBrowserRouter(createRoutesFromElements(
   }
     />
     <Route path="/about" element={<About />} />
-    <Route path="/test" element={<Test />} />
     <Route
       path="/rental/:rentalId"
       element={<Rental />}
@@ -42,7 +39,6 @@ const router = createBrowserRouter(createRoutesFromElements(
         return { rental }
       }}
     />
-    <Route path="/features" element={<Features />} />
     <Route path="/carousel/:rentalId" element={<CarouselPic />}
       loader={({ params }) => {
         // const { rentalId } = params;
