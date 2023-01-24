@@ -8,7 +8,7 @@ function Header() {
 
   return (
     <div className="headerContainer">
-      <img src={logo} alt="logo kasa"></img>
+      <img src={logo} alt="logo kasa" className="logo_kasa"></img>
       <div className="navContainer">
         <Link to="/" className="linkStyle">
           Accueil

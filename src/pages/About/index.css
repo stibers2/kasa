@@ -18,6 +18,13 @@
 .aboutCard {
   display:flex;
 flex-direction:column;
-width: 100%;
-margin: 10px 4% 0 4%;
+width: 72%;
+margin: 10px 0 0 0;
+}
+
+@media all and (max-width: 768px) {
+  .aboutCard {
+  width: 95%;
+  margin: 10px 0 0 0;
+  }
 }

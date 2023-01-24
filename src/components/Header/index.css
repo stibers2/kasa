@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color:#FF6060;
+  color: #FF6060;
 }
 
 .navContainer {
@@ -14,12 +14,19 @@
 }
 
 .linkStyle {
-    padding-left: 20px;
-    color: inherit;
-    text-decoration-line: none;
+  padding-left: 20px;
+  color: inherit;
+  text-decoration-line: none;
+}
+
+
+@media all and (max-width: 768px) {
+  .headerContainer {
+    flex-direction: row !important;
+    justify-content: space-between !important;
   }
 
-
-@media all and (max-width: 768px)  { 
-
+  .logo_kasa {
+    width: 50%;
+  }
 }
