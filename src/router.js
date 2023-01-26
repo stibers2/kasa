@@ -11,7 +11,7 @@ import Error from './pages/Error'
 import CarouselPic from './pages/CarouselPic';
 import data from './assets/logements.json'
 
-const router = createBrowserRouter(createRoutesFromElements(
+const Router = createBrowserRouter(createRoutesFromElements(
   <Route path="" element={<Layout />}  >
     <Route exact path="/" element={<Home />} 
     loader={() => { return{data} }
@@ -54,6 +54,9 @@ const router = createBrowserRouter(createRoutesFromElements(
   </Route>
 ));
 
+export default Router
+
+/*
 ReactDOM.createRoot(document.getElementById('root')).render(
 
   <React.StrictMode>
@@ -65,3 +68,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+*/

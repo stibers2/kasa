@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import './carousel.css'
 
-const Carousel = ({ children, pictures }) => {
+const Carousel = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [paused, setPaused] = useState(false);
 

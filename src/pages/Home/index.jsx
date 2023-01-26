@@ -1,24 +1,7 @@
-import styled from 'styled-components'
 import accueil_banner from '../../assets/accueil_banner.png'
 import { useLoaderData } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import './home.css'
-
-
-const Card = styled.div`
-margin-top:50px;
-margin-left:50px;
-height:300px;
-width:300px;
-position:relative;
-background-color:#FF6060;
-`
-const CardTitle = styled.p`
-position: absolute;
-bottom:2%;
-left:2%;
-color: white;
-`
 
 const imgStyle = {
   /*objectFit: 'contain',*/
@@ -34,14 +17,14 @@ function Home() {
     <div className="cardsContainer">
       { 
       data.map ( (content, index) =>
-        <Card key={"card-" + index}>
+        <div key={"card-" + index} className="card">
           <Link to={`/rental/${content.id}`}>
           <img src={content.cover} alt="rental" style={imgStyle}/>
-          <CardTitle>
+          <div className="cardTitle">
         {content.title}
-        </CardTitle>
+        </div>
         </Link>
-        </Card>
+        </div>
         
       )
      
