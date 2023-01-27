@@ -18,7 +18,7 @@
     border-radius: 50%;
 }
 
-.headerContainer {
+.headerContainerRental {
     display: flex;
     flex-direction: row;
 }
@@ -99,7 +99,7 @@
         justify-content: space-between;
     }
 
-    .headerContainer {
+    .headerContainerRental {
         display: flex ;
         flex-direction: column !important;
     }

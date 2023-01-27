@@ -49,7 +49,7 @@ function Rental(props) {
                 <div className="imgContainer">
                     <img className="imgClass" src={rental.cover} alt={rental.title}></img>
                 </div>
-                <div className="headerContainer">
+                <div className="headerContainerRental">
                     <div className="titleContainer">
                         <h1 style={h1Style}>{rental.title}</h1>
                         <h2 style={h2Style}>{rental.location}</h2>
