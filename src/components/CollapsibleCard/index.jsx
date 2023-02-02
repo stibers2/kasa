@@ -1,4 +1,4 @@
-import './index.css';
+import '../../assets/css/collapsible.css';
 import {useState} from 'react';
 import { AiOutlineUp } from "react-icons/ai";
 import { AiOutlineDown } from "react-icons/ai";
@@ -13,11 +13,11 @@ function CollapsibleCard({title, description}) {
     return (
         
       <div>
-        <div className="aboutTitle">
+        <div className="aboutTitleCollapsible">
           {title}
           {iconButton}
         </div>
-        {open && (<div className="aboutParagraph">{description}</div>)}
+        {open && (<div className="aboutParagraphCollapsible">{description}</div>)}
       </div>
     )
   }

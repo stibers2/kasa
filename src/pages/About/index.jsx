@@ -1,5 +1,5 @@
 import about_banner from '../../assets/about_banner.png'
-import './index.css';
+import '../../assets/css/about.css';
 import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
 
 
@@ -21,18 +21,18 @@ const tab = [
 },
 ]
   return (
-    <div className="aboutContainer">
+    <div className="aboutContainerAbout">
       <img src={about_banner} alt="banner" className="banner"></img>
-      <div className="aboutCard">
+      <div className="aboutCardAbout">
         <CollapsibleCard  title={tab[0].title} description={tab[0].description} />
         </div>
-      <div className="aboutCard">
+      <div className="aboutCardAbout">
         <CollapsibleCard  title={tab[1].title} description={tab[1].description} />
         </div>
-      <div className="aboutCard">
+      <div className="aboutCardAbout">
         <CollapsibleCard  title={tab[2].title} description={tab[2].description} />
         </div>
-      <div className="aboutCard">
+      <div className="aboutCardAbout">
         <CollapsibleCard  title={tab[3].title} description={tab[3].description} />
         </div>
     </div>

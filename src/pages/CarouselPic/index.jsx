@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
-import CarouselPn from "./Carousel";
-import CarouselItem from './CarouselItem'
+//import CarouselPn from "./Carousel";
+//import CarouselItem from './CarouselItem'
 import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
-// import './index.css'
+import '../../assets/css/carouselidx.css'
 
 import { Carousel } from "react-carousel-minimal";
 
@@ -60,11 +60,11 @@ const CarouselPic = () => {
                 <CollapsibleCard  title={tab[2].title} description={tab[2].description} />
                 </div>
         </div>
-        <div className="aboutContainer">
-                    <div className="about2Container" >
+        <div className="aboutContainerCarousel">
+                    <div className="about2ContainerCarousel" >
                 <CollapsibleCard  title={tab[0].title} description={tab[0].description} />
                 </div>
-                    <div className="about2Container"  >
+                    <div className="about2ContainerCarousel"  >
                 <CollapsibleCard  title={tab[1].title} description={tab[1].description} />
                 </div>
         </div>

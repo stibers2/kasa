@@ -1,4 +1,4 @@
- .aboutTitle {
+ .aboutTitleAbout  {
     width: 100%;
   }
 
@@ -6,7 +6,7 @@
     width: 100%;
 }
 
-.aboutContainer {
+.aboutContainerAbout {
   color:#FF6060;
   width:80%;
   justify-content: center;
@@ -15,7 +15,7 @@
   flex-direction:column !important;
 }
 
-.aboutCard {
+.aboutCardAbout  {
   display:flex;
 flex-direction:column;
 width: 72%;

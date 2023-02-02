@@ -105,15 +105,15 @@ margin-bottom:20px;
     list-style-type: none;
 }
 
-.aboutContainer {
+.aboutContainerCarousel {
     display:flex;
     flex-direction: column;
     align-items: left;
-    width: 100%;
+    width: 150%;
     margin-bottom:20px;
 }
 
-.about2Container {
+.about2ContainerCarousel {
     display:flex;
     flex-direction: column;
     margin-left: 10px;

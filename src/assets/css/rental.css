@@ -2,6 +2,7 @@
     display: flex;
     color: #FF6060;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 .equip_ul {
@@ -12,10 +13,6 @@
 
 .linkTag {
     text-decoration: none;
-}
-
-.hostPic {
-    border-radius: 50%;
 }
 
 .headerContainerRental {
@@ -46,11 +43,18 @@
     color: #FF6060;
     display: flex;
     flex-direction: row;
+    
 }
 
 .hostPicContainer {
     display: flex;
     border-radius: 50%;
+    justify-content: center;
+}
+
+.hostPic {
+    border-radius: 50%;
+    width: 50%;
 }
 
 .ratingContainer {
@@ -77,15 +81,24 @@
     flex-direction: row !important;
     align-items: flex-start;
     justify-content: flex-start;
+    margin-top: 10px;
 }
 
-.about2Container {
+.about2ContainerRental {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    list-style-type: none;
+}
+
+.about3ContainerRental {
     display: flex;
     flex-direction: column;
     margin-left: 20px !important;
     width: 50%;
     list-style-type: none;
 }
+
 
 @media all and (max-width: 768px) {
     .aboutContainer {

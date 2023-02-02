@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import './rental.css';
+import '../../assets/css/rental.css';
 import star_full from '../../assets/star_rate-24px 5.svg';
 import star_empty from '../../assets/star_rate-24px 2.svg';
 import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
@@ -68,10 +68,10 @@ function Rental(props) {
                     </div>
                 </div>
                 <div className="aboutContainerRental">
-                    <div className="about2Container">
+                    <div className="about2ContainerRental">
                         <CollapsibleCard  title={tab[0].title} description={tab[0].description} />
                         </div>
-                    <div className="about2Container">
+                    <div className="about3ContainerRental">
                         <CollapsibleCard  title={tab[1].title} description={tab[1].description} />
                         </div>
                 </div>

@@ -1,4 +1,4 @@
-.aboutTitle {
+.aboutTitleCollapsible {
   background-color:#FF6060;
   color:white;
   display : flex;
@@ -8,7 +8,7 @@
   padding-left: 5px;
 }
 
-.aboutParagraph {
+.aboutParagraphCollapsible {
   background-color:#F6F6F6;
   color:#FF6060;
   padding: 10px 5px 10px 5px;
