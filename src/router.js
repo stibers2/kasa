@@ -1,14 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom'
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 import Layout from './components/Layout';
 import Home from './pages/Home'
 import About from './pages/About'
 import Rental from './pages/Rental'
 import Error from './pages/Error'
-import CarouselPic from './pages/CarouselPic';
 import data from './assets/logements.json'
 
 const Router = createBrowserRouter(createRoutesFromElements(
@@ -36,20 +33,6 @@ const Router = createBrowserRouter(createRoutesFromElements(
         return { rental }
       }}
     />
-    <Route path="/carousel/:rentalId" element={<CarouselPic />}
-      loader={({ params }) => {
-        // const { rentalId } = params;
-        const pId = params.rentalId;
-        if (pId === undefined || pId === null || pId === "") {
-          throw new Response("Not found", { status: 404 });
-        }
-        const rental = data.find(({ id }) => id === pId);
-        if (rental === undefined || rental === null) {
-          throw new Response("Not found", { status: 404 });
-        }
-        return { rental };
-      }}
-      errorElement={<Error />} />
       <Route path="*" element={<Error />} />
   </Route>
 ));
