@@ -3,7 +3,7 @@ import '../../assets/css/rental.css';
 import star_full from '../../assets/star_rate-24px 5.svg';
 import star_empty from '../../assets/star_rate-24px 2.svg';
 import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
-import Carousel from "../../components/Carousel/index.jsx";
+import { Link } from 'react-router-dom'
 
 const h1Style = {
     color: '#FF6060',
@@ -28,9 +28,9 @@ function Rental(props) {
     }
     const tags = [];
     for (const [key, value] of Object.entries(rental.tags)) {
-        tags.push(
+        tags.push(<Link className="linkTag" to={`/carousel/${rental.id}?tag=${value}`} key={"tag-" + key}>
             <p key={'equip-' + key} className='tag'>{value}</p>
-            );
+            </Link>);
     }
     const tab = [
         { title: 'Description'
@@ -46,7 +46,9 @@ function Rental(props) {
           <Navigate to="/Error" replace={true} />
             )} */}
             <div key={rental.id}>
-            <Carousel pictures={rental.pictures}></Carousel>
+                <div className="imgContainer">
+                    <img className="imgClass" src={rental.cover} alt={rental.title}></img>
+                </div>
                 <div className="headerContainerRental">
                     <div className="titleContainer">
                         <h1 style={h1Style}>{rental.title}</h1>

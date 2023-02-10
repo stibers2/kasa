@@ -46,7 +46,7 @@
     height: 20px;
 }
 
-@media screen and (min-width: 768) {
+@media screen and (min-width: 768px) {
     .carousel_img {
         height: 450px;
     }
