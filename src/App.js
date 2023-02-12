@@ -1,5 +1,4 @@
 import "./App.css";
-import "./Containers/Home/Home.scss";
 import { Component } from "react";
 import Router from "./router";
 

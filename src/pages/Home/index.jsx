@@ -1,7 +1,8 @@
 import accueil_banner from '../../assets/accueil_banner.png'
-import { useLoaderData } from "react-router-dom";
+//import { useLoaderData } from "react-router-dom";
 import { Link } from 'react-router-dom'
 import './home.css'
+import data from '../../assets/logements.json'
 
 const imgStyle = {
   /*objectFit: 'contain',*/
@@ -9,8 +10,8 @@ const imgStyle = {
   height:'100%',
 };
 
-function Home() {
-  const { data } = useLoaderData();
+function Home() {  
+  //const { data } = useLoaderData();
   return (
     <div className="homeContainer">
     <img src={accueil_banner} alt="banner" className="banner"></img>

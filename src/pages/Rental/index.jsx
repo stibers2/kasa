@@ -1,9 +1,14 @@
-import { useLoaderData } from "react-router-dom";
+//import { useLoaderData } from "react-router-dom";
 import '../../assets/css/rental.css';
 import star_full from '../../assets/star_rate-24px 5.svg';
 import star_empty from '../../assets/star_rate-24px 2.svg';
 import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
 import { Link } from 'react-router-dom'
+import data from '../../assets/logements.json'
+import Carousel from "../../components/Carousel/index.jsx";
+//import {useSearchParams} from "react-router-dom";
+import { Navigate } from "react-router-dom";
+import styled from 'styled-components'
 
 const h1Style = {
     color: '#FF6060',
@@ -11,10 +16,17 @@ const h1Style = {
 const h2Style = {
     color: '#FF6060',
 };
+const PageContainer = styled.div`
+display : flex;
+color:#FF6060;
+`
 
 function Rental(props) {
-    
-    const { rental } = useLoaderData();
+    /*  get product id with useSearchParams Hook */
+    //const [searchParams] = useSearchParams();
+    //const productId = searchParams.get('id');
+    const productId = window.location.pathname.substr(8);
+    const rental = data.find(({id}) => id === productId);
     const equipments = [];
     for (const [key, value] of Object.entries(rental.equipments)) {
         equipments.push(<li key={'equip-' + key}>{value}</li>);
@@ -28,7 +40,7 @@ function Rental(props) {
     }
     const tags = [];
     for (const [key, value] of Object.entries(rental.tags)) {
-        tags.push(<Link className="linkTag" to={`/carousel/${rental.id}?tag=${value}`} key={"tag-" + key}>
+        tags.push(<Link className="linkTag" to={`/features?id=${productId}&tag=${value}`}>
             <p key={'equip-' + key} className='tag'>{value}</p>
             </Link>);
     }
@@ -39,16 +51,14 @@ function Rental(props) {
       { title: 'Equipements'
         , description: equipments
       }]
-     // let productFound= data.find(({id}) => id === productId ) ; /*productId c67ab8a72*/
+      let productFound= data.find(({id}) => id === productId ) ; /*productId c67ab8a72*/
     return (
-        <div className="pageContainer">
-          {/*  {! productFound && (
+        <PageContainer>
+            {! productFound && (
           <Navigate to="/Error" replace={true} />
-            )} */}
+            )}
             <div key={rental.id}>
-                <div className="imgContainer">
-                    <img className="imgClass" src={rental.cover} alt={rental.title}></img>
-                </div>
+            <Carousel pictures={rental.pictures}></Carousel>
                 <div className="headerContainerRental">
                     <div className="titleContainer">
                         <h1 style={h1Style}>{rental.title}</h1>
@@ -68,15 +78,15 @@ function Rental(props) {
                     </div>
                 </div>
                 <div className="aboutContainerRental">
-                    <div className="about2ContainerRental">
+                    <div className="about2ContainerRental" >
                         <CollapsibleCard  title={tab[0].title} description={tab[0].description} />
                         </div>
-                    <div className="about3ContainerRental">
+                    <div className="about3ContainerRental" >
                         <CollapsibleCard  title={tab[1].title} description={tab[1].description} />
                         </div>
                 </div>
             </div>
-        </div>
+        </PageContainer>
     )
 }
 
