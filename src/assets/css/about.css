@@ -2,13 +2,13 @@
     width: 100%;
   }
 
-  .banner {
+  .banner_about {
     width: 100%;
 }
 
 .aboutContainerAbout {
   color:#FF6060;
-  width:80%;
+  width:100%;
   justify-content: center;
   align-items: center;
   display:flex;

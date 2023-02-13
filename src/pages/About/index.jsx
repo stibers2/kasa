@@ -22,7 +22,7 @@ const tab = [
 ]
   return (
     <div className="aboutContainerAbout">
-      <img src={about_banner} alt="banner" className="banner"></img>
+      <img src={about_banner} alt="banner" className="banner_about"></img>
       <div className="aboutCardAbout">
         <CollapsibleCard  title={tab[0].title} description={tab[0].description} />
         </div>

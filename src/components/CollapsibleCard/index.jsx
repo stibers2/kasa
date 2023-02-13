@@ -9,7 +9,8 @@ function CollapsibleCard({title, description}) {
   const toggle = () => {
     setOPen(!open);
   };
-  const iconButton = open ? <AiOutlineUp onClick={toggle}/> : <AiOutlineDown onClick={toggle}/>;
+  const iconButton = open ? <AiOutlineUp onClick={toggle}/> 
+  : <AiOutlineDown  onClick={toggle}/>;
     return (
         
       <div>

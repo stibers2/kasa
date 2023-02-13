@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import './index.css';
+import '../../assets/css/error.css';
 
 
 const TitleContainer = styled.h1`
