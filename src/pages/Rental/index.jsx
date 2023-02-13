@@ -1,32 +1,20 @@
-//import { useLoaderData } from "react-router-dom";
 import '../../assets/css/rental.css';
 import star_full from '../../assets/star_rate-24px 5.svg';
 import star_empty from '../../assets/star_rate-24px 2.svg';
 import CollapsibleCard from '../../components/CollapsibleCard/index.jsx';
 import { Link } from 'react-router-dom'
-//import data from '../../assets/logements.json'
 import Carousel from "../../components/Carousel/index.jsx";
 import { useLoaderData } from "react-router-dom";
-//import {useSearchParams} from "react-router-dom";
-//import styled from 'styled-components'
+
 
 const h1Style = {
     color: '#FF6060',
 };
 const h2Style = {
     color: '#FF6060',
-};/*
-const PageContainer = styled.div`
-display : flex;
-color:#FF6060;
-`*/
+};
 
 function Rental(props) {
-    /*  get product id with useSearchParams Hook */
-    //const [searchParams] = useSearchParams();
-    //const productId = searchParams.get('id');
-    //const productId = window.location.pathname.substr(8);
-    //const rental = data.find(({id}) => id === productId);
     const { rental } = useLoaderData();
     const equipments = [];
     for (const [key, value] of Object.entries(rental.equipments)) {
