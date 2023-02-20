@@ -24,9 +24,13 @@
   .headerContainer {
     flex-direction: row !important;
     justify-content: space-between !important;
+    padding-left: 0px;
   }
 
   .logo_kasa {
     width: 50%;
+  }
+  .navContainer {
+    padding: 0px;
   }
 }

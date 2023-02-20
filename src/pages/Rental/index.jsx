@@ -7,13 +7,6 @@ import Carousel from "../../components/Carousel/index.jsx";
 import { useLoaderData } from "react-router-dom";
 
 
-const h1Style = {
-    color: '#FF6060',
-};
-const h2Style = {
-    color: '#FF6060',
-};
-
 function Rental(props) {
     const { rental } = useLoaderData();
     const equipments = [];
@@ -47,8 +40,8 @@ function Rental(props) {
             <Carousel pictures={rental.pictures}></Carousel>
                 <div className="headerContainerRental">
                     <div className="titleContainer">
-                        <h1 style={h1Style}>{rental.title}</h1>
-                        <h2 style={h2Style}>{rental.location}</h2>
+                        <h1 className="title">{rental.title}</h1>
+                        <h2 className="title2">{rental.location}</h2>
                         <div className="tagContainer">{tags}</div>
                     </div>
                     <div className="hostAndRatingContainer">

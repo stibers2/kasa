@@ -25,6 +25,28 @@
     width: 80%;
 }
 
+.titleContainer .title {
+    color: #FF6060;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.titleContainer .title2 {
+    color: #FF6060;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
 .imgContainer {
     display: flex;
 }
@@ -43,7 +65,7 @@
     color: #FF6060;
     display: flex;
     flex-direction: row;
-    
+
 }
 
 .hostPicContainer {
@@ -112,19 +134,43 @@
     }
 
     .headerContainerRental {
-        display: flex ;
+        display: flex;
         flex-direction: column !important;
     }
+
     .star {
         width: 25%;
     }
+
     .hostPicContainer {
         width: 50%;
         height: 50%;
         margin-right: -50px;
     }
+
     .hostName {
         font-size: 15px;
     }
-    
+
+    .titleContainer .title {
+        font-size: 1.5em;
     }
+
+    .titleContainer .title2 {
+        font-size: 1em;
+    }
+
+    .aboutContainerRental {
+        display: flex;
+        flex-direction: column !important;
+    }
+
+    .about2ContainerRental {
+        width: 100%;
+    }
+
+    .about3ContainerRental {
+        width: 100%;
+        margin-left: 0px !important;
+    }
+}
