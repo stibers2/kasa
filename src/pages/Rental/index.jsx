@@ -22,10 +22,10 @@ function Rental(props) {
     }
     const stars= [];
     for (let i=0;i<rental.rating;i++) {
-        stars.push(<img src={star_full} alt="star full"></img>)
+        stars.push(<img src={star_full} alt="star full" className='star'></img>)
     }
     for (let i=rental.rating;i<5;i++){
-        stars.push(<img src={star_empty} alt="star empty"></img>)
+        stars.push(<img src={star_empty} alt="star empty" className='star'></img>)
     }
     const tags = [];
     for (const [key, value] of Object.entries(rental.tags)) {
@@ -53,7 +53,7 @@ function Rental(props) {
                     </div>
                     <div className="hostAndRatingContainer">
                         <div className="hostContainer">
-                            <h2>{rental.host.name}</h2>
+                            <h2 className="hostName">{rental.host.name}</h2>
                             <div className="hostPicContainer">
                                 <img src={rental.host.picture} alt={rental.host.name} className='hostPic'></img>
                             </div>

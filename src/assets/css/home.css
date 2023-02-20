@@ -53,5 +53,10 @@
   .cardsContainer {
     display: flex;
     flex-direction: column;
+    background-color: white;
   }
+  .card {
+    width: 100%;
+  }
+ 
 }

@@ -50,5 +50,11 @@
     .carousel_img {
         height: 450px;
     }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel_legend {
+        font-size: 0px;
+    }
 
 }
